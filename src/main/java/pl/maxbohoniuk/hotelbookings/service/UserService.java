@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import pl.maxbohoniuk.hotelbookings.model.User;
 import pl.maxbohoniuk.hotelbookings.repository.UserRepository;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -19,6 +20,14 @@ public class UserService {
 
     public List<User> getAllUsers(){
         return userRepository.findAll();
+    }
+
+    public User addUser(User user){
+        return userRepository.save(user);
+    }
+
+    public void addUsers(User... users){
+        Arrays.asList(users).forEach((u)->userRepository.save(u));
     }
 
 }
