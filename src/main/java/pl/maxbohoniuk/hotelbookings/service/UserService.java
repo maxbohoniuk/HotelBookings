@@ -30,5 +30,14 @@ public class UserService {
         Arrays.asList(users).forEach((u)->userRepository.save(u));
     }
 
+    public User getUserById(long id)throws Exception{
+        if(userRepository.existsById(id)){
+            return userRepository.getById(id);
+        }
+        else{
+            throw new Exception("User with id = " + id + " not found");
+        }
+    }
+
 }
 

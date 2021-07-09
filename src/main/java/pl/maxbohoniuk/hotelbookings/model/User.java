@@ -1,6 +1,7 @@
 package pl.maxbohoniuk.hotelbookings.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class User {
 
     private String email;
 
-    private Date birthDate;
+    private LocalDate birthDate;
 
     private String citizenship;
 
@@ -27,7 +28,7 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String email, Date birthDate, String citizenship) {
+    public User(String firstName, String lastName, String email, LocalDate birthDate, String citizenship) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -67,11 +68,11 @@ public class User {
         this.email = email;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -81,5 +82,10 @@ public class User {
 
     public void setCitizenship(String citizenship) {
         this.citizenship = citizenship;
+    }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName;
     }
 }

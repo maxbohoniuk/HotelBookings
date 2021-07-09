@@ -1,5 +1,6 @@
 package pl.maxbohoniuk.hotelbookings.controller;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,11 @@ public class RoomController {
         Room r3 = new Room(511,1, RoomType.LUX);
         Room r4 = new Room(278,6, RoomType.ROYAL);
 
-        roomService.addRooms(r1,r2,r3,r4);
+        try {
+            roomService.addRooms(r1,r2,r3,r4);
+        } catch (Exception e) {
+            LoggerFactory.getLogger(this.getClass()).error(e.getMessage());
+        }
     }
 
     @GetMapping

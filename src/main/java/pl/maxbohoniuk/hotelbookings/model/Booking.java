@@ -1,7 +1,7 @@
 package pl.maxbohoniuk.hotelbookings.model;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 public class Booking {
@@ -10,9 +10,9 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private Date checkInDate;
+    private LocalDate checkInDate;
 
-    private Date checkOutDate;
+    private LocalDate checkOutDate;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private User user;
@@ -21,6 +21,8 @@ public class Booking {
     private Room room;
 
     private BookingStatus status;
+
+    private int guestsCount;
 
     public Booking() {
     }
@@ -33,19 +35,19 @@ public class Booking {
         this.id = id;
     }
 
-    public Date getCheckInDate() {
+    public LocalDate getCheckInDate() {
         return checkInDate;
     }
 
-    public void setCheckInDate(Date checkInDate) {
+    public void setCheckInDate(LocalDate checkInDate) {
         this.checkInDate = checkInDate;
     }
 
-    public Date getCheckOutDate() {
+    public LocalDate getCheckOutDate() {
         return checkOutDate;
     }
 
-    public void setCheckOutDate(Date checkOutDate) {
+    public void setCheckOutDate(LocalDate checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
 
@@ -71,5 +73,13 @@ public class Booking {
 
     public void setStatus(BookingStatus status) {
         this.status = status;
+    }
+
+    public int getGuestsCount() {
+        return guestsCount;
+    }
+
+    public void setGuestsCount(int guestsCount) {
+        this.guestsCount = guestsCount;
     }
 }

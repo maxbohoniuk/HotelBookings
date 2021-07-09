@@ -21,9 +21,9 @@ public class UserController {
     public UserController(UserService UserService) {
         this.userService = UserService;
 
-        User u1 = new User("Rhonda","French","rfrench@gmail.com", Date.valueOf(LocalDate.of(1994,5,18)),"Poland");
-        User u2 = new User("Austen","Frank","afrank@gmail.com", Date.valueOf(LocalDate.of(2001,11,20)),"Poland");
-        User u3 = new User("Codey","Harrington","charrington@gmail.com", Date.valueOf(LocalDate.of(1987,2,7)),"USA");
+        User u1 = new User("Rhonda","French","rfrench@gmail.com", LocalDate.of(1994,5,18),"Poland");
+        User u2 = new User("Austen","Frank","afrank@gmail.com", LocalDate.of(2001,11,20),"Poland");
+        User u3 = new User("Codey","Harrington","charrington@gmail.com", LocalDate.of(1987,2,7),"USA");
 
         userService.addUsers(u1,u2,u3);
     }
