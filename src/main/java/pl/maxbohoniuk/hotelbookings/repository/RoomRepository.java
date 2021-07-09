@@ -8,6 +8,8 @@ public interface RoomRepository extends JpaRepository<Room,Long> {
 
     boolean existsByNumber(int number);
 
+    Room getByNumber(int number);
+
 
 
 }

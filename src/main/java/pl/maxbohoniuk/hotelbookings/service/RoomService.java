@@ -7,6 +7,7 @@ import pl.maxbohoniuk.hotelbookings.model.User;
 import pl.maxbohoniuk.hotelbookings.repository.RoomRepository;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -30,4 +31,10 @@ public class RoomService {
     public void addRooms(Room... rooms){
         Arrays.asList(rooms).forEach((r)->roomRepository.save(r));
     }
+
+    public Room getRoomByNumber(int number){
+        //exists check!
+        return roomRepository.getByNumber(number);
+    }
+
 }
