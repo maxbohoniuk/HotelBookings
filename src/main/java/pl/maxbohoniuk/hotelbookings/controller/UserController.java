@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.maxbohoniuk.hotelbookings.model.User;
 import pl.maxbohoniuk.hotelbookings.service.UserService;
-
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 

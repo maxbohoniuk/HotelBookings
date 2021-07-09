@@ -61,8 +61,4 @@ public class RoomService {
         }
     }
 
-    public boolean roomExistsById(long id){
-        return roomRepository.existsById(id);
-    }
-
 }
