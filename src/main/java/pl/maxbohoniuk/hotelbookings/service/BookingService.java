@@ -57,6 +57,7 @@ public class BookingService {
     public boolean confirmBooking(Booking booking)throws Exception{
         if(booking.getStatus() == BookingStatus.PENDING){
             booking.setStatus(BookingStatus.BOOKED);
+            bookingRepository.save(booking);
             return true;
         }
         else{
@@ -75,6 +76,11 @@ public class BookingService {
         else{
             throw new Exception("Booking does not exist");
         }
+    }
+
+    public void cancelBooking(Booking booking){
+        booking.setStatus(BookingStatus.CANCELLED);
+        bookingRepository.save(booking);
     }
 
 

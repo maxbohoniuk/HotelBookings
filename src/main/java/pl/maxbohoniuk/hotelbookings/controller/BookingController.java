@@ -68,6 +68,16 @@ public class BookingController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
-        return ResponseEntity.ok("Booking with confirmed.");
+        return ResponseEntity.ok("Booking was confirmed.");
+    }
+
+    @GetMapping(path = "/{bookingId}/cancel")
+    public ResponseEntity<String> cancelBooking(@PathVariable("bookingId") long bookingId){
+        try {
+            bookingService.cancelBooking(bookingService.getById(bookingId));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+        return ResponseEntity.ok("Booking was cancelled.");
     }
 }
