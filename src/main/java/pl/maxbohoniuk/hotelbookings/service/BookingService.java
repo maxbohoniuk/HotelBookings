@@ -54,6 +54,29 @@ public class BookingService {
         });
     }
 
+    public boolean confirmBooking(Booking booking)throws Exception{
+        if(booking.getStatus() == BookingStatus.PENDING){
+            booking.setStatus(BookingStatus.BOOKED);
+            return true;
+        }
+        else{
+            throw new Exception("Booking was not opened");
+        }
+    }
+
+    public boolean existsById(long id){
+        return bookingRepository.existsById(id);
+    }
+
+    public Booking getById(long id)throws Exception{
+        if(existsById(id)){
+            return bookingRepository.getById(id);
+        }
+        else{
+            throw new Exception("Booking does not exist");
+        }
+    }
+
 
 
 }

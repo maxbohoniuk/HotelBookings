@@ -60,4 +60,14 @@ public class BookingController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    @GetMapping(path = "/{bookingId}/confirm")
+    public ResponseEntity<String> confirmBooking(@PathVariable("bookingId") long bookingId){
+        try {
+            bookingService.confirmBooking(bookingService.getById(bookingId));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+        return ResponseEntity.ok("Booking with confirmed.");
+    }
 }
